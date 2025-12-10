@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+th {
+  background-color: #ccc; /* Gray heading */
+  border: 1px solid #999;
+  padding: 8px;
+}
+td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Gray alternate rows */
+}
+tfoot td {
+  border: 1px solid #ccc;
+  padding: 20px 0 0 0;
+}
+.footer-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+.footer-section {
+  text-align: center;
+  flex: 1;
+}
+.footer-logo, .footer-stamp {
+  width: 120px;
+  display: block;
+  margin: 0 auto;
+}
+.signature-line {
+  margin-top: 40px;
+  border-top: 1px solid #000;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+input, select {
+  border: none; /* plain input */
+  background: transparent;
+  width: 100%;
+}
+.returnable {
+  color: green;
+}
+.nonreturnable {
+  color: red;
+}
+
+.logo{
+    align-items: center;
+    margin: 0 auto;
+}
+</style>
+</head>
+<body>
+    <div class="logo">
+            <img src="data:image/webp;base64,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" alt="Logo" class="footer-logo">
+     </div>
+
+<table id="myTable">
+  <thead>
+    <tr>
+      <th>Sl No</th>
+      <th>Item Name</th>
+      <th>Qty</th>
+      <th>Return Type</th>
+      <th>Deadline</th>
+      <th>Approximate Amount</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+  <tfoot>
+    <tr>
+      <td colspan="6">
+        <div class="footer-box">
+
+          <!-- Company Logo -->
+          <div class="signature-line">Authorized Signatory</div>
+
+          <!-- Empty space in middle -->
+          <div class="footer-section"></div>
+
+          <!-- Stamp -->
+          <div class="footer-section">
+            <img src="ata:image/webp;base64,UklGRtAAAABXRUJQVlA4WAoAAAAQAAAADwAADwAAQUxQSDIAAAARL6CobSM2WwAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA1UlEQVR42u3TMQ0AAAwCIO1fNGRhZsUZ5hg0hoQwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH4DaGkAB+H0lHMAAAAASUVORK5CYII=" alt="Stamp" class="footer-stamp">
+            <div class="signature-line">Company Stamp</div>
+          </div>
+
+        </div>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+
+<button onclick="addRow()">Add Row</button>
+<button onclick="printTableData()">Print Table Data</button>
+
+<script>
+function addRow() {
+  const tableBody = document.querySelector("#myTable tbody");
+  const rowCount = tableBody.rows.length;
+  const row = tableBody.insertRow();
+
+  // Sl No
+  const cell1 = row.insertCell(0);
+  cell1.innerHTML = rowCount + 1;
+
+  // Item Name
+  const cell2 = row.insertCell(1);
+  cell2.innerHTML = '<input type="text" placeholder="Item Name">';
+
+  // Qty
+  const cell3 = row.insertCell(2);
+  cell3.innerHTML = '<input type="number" placeholder="Qty">';
+
+  // Return Type
+  const cell4 = row.insertCell(3);
+  cell4.innerHTML = `
+    <select onchange="updateReturnType(this)">
+      <option value="">Select</option>
+      <option value="Returnable">Returnable</option>
+      <option value="Non-returnable">Non-returnable</option>
+    </select>
+  `;
+
+  // Deadline
+  const cell5 = row.insertCell(4);
+  cell5.innerHTML = '';
+
+  // Approximate Amount
+  const cell6 = row.insertCell(5);
+  cell6.innerHTML = '<input type="number" placeholder="Amount">';
+}
+
+function updateReturnType(select) {
+  const row = select.parentElement.parentElement;
+  const deadlineCell = row.cells[4];
+
+  if(select.value === 'Returnable') {
+    select.className = 'returnable';
+    const today = new Date();
+    today.setDate(today.getDate() + 30);
+    deadlineCell.innerText = today.toISOString().split('T')[0];
+  } else if(select.value === 'Non-returnable') {
+    select.className = 'nonreturnable';
+    deadlineCell.innerText = '';
+  } else {
+    select.className = '';
+    deadlineCell.innerText = '';
+  }
+}
+
+
+</script>
+
+</body>
+</html>
